@@ -180,6 +180,7 @@
             this.sensorGridView.Location = new System.Drawing.Point(225, 160);
             this.sensorGridView.Name = "sensorGridView";
             this.sensorGridView.ReadOnly = true;
+            this.sensorGridView.RowHeadersVisible = false;
             this.sensorGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sensorGridView.Size = new System.Drawing.Size(266, 143);
             this.sensorGridView.TabIndex = 9;
