@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsusAura.cs" />
     <Compile Include="MonitorWindow.cs">
       <SubType>Form</SubType>
     </Compile>

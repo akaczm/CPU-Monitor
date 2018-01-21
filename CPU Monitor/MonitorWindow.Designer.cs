@@ -52,12 +52,22 @@
             this.setSensor2Btn = new System.Windows.Forms.Button();
             this.selSensor1Label = new System.Windows.Forms.Label();
             this.selSensor2Label = new System.Windows.Forms.Label();
+            this.auraLabelR = new System.Windows.Forms.Label();
+            this.auraValueR = new System.Windows.Forms.NumericUpDown();
+            this.auraValueG = new System.Windows.Forms.NumericUpDown();
+            this.auraValueB = new System.Windows.Forms.NumericUpDown();
+            this.auraLabelG = new System.Windows.Forms.Label();
+            this.auraLabelB = new System.Windows.Forms.Label();
+            this.auraButtonSet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueB)).BeginInit();
             this.SuspendLayout();
             // 
             // portlabel
@@ -247,11 +257,96 @@
             this.selSensor2Label.TabIndex = 13;
             this.selSensor2Label.Text = "None";
             // 
+            // auraLabelR
+            // 
+            this.auraLabelR.AutoSize = true;
+            this.auraLabelR.Location = new System.Drawing.Point(262, 14);
+            this.auraLabelR.Name = "auraLabelR";
+            this.auraLabelR.Size = new System.Drawing.Size(15, 13);
+            this.auraLabelR.TabIndex = 17;
+            this.auraLabelR.Text = "R";
+            // 
+            // auraValueR
+            // 
+            this.auraValueR.Location = new System.Drawing.Point(265, 31);
+            this.auraValueR.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.auraValueR.Name = "auraValueR";
+            this.auraValueR.Size = new System.Drawing.Size(44, 20);
+            this.auraValueR.TabIndex = 18;
+            this.auraValueR.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            // 
+            // auraValueG
+            // 
+            this.auraValueG.Location = new System.Drawing.Point(315, 30);
+            this.auraValueG.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.auraValueG.Name = "auraValueG";
+            this.auraValueG.Size = new System.Drawing.Size(44, 20);
+            this.auraValueG.TabIndex = 19;
+            // 
+            // auraValueB
+            // 
+            this.auraValueB.Location = new System.Drawing.Point(365, 30);
+            this.auraValueB.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.auraValueB.Name = "auraValueB";
+            this.auraValueB.Size = new System.Drawing.Size(44, 20);
+            this.auraValueB.TabIndex = 20;
+            // 
+            // auraLabelG
+            // 
+            this.auraLabelG.AutoSize = true;
+            this.auraLabelG.Location = new System.Drawing.Point(315, 13);
+            this.auraLabelG.Name = "auraLabelG";
+            this.auraLabelG.Size = new System.Drawing.Size(15, 13);
+            this.auraLabelG.TabIndex = 21;
+            this.auraLabelG.Text = "G";
+            // 
+            // auraLabelB
+            // 
+            this.auraLabelB.AutoSize = true;
+            this.auraLabelB.Location = new System.Drawing.Point(362, 14);
+            this.auraLabelB.Name = "auraLabelB";
+            this.auraLabelB.Size = new System.Drawing.Size(14, 13);
+            this.auraLabelB.TabIndex = 22;
+            this.auraLabelB.Text = "B";
+            // 
+            // auraButtonSet
+            // 
+            this.auraButtonSet.Location = new System.Drawing.Point(416, 30);
+            this.auraButtonSet.Name = "auraButtonSet";
+            this.auraButtonSet.Size = new System.Drawing.Size(75, 20);
+            this.auraButtonSet.TabIndex = 23;
+            this.auraButtonSet.Text = "Set";
+            this.auraButtonSet.UseVisualStyleBackColor = true;
+            this.auraButtonSet.Click += new System.EventHandler(this.auraButtonSet_Click);
+            // 
             // sensorList2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 425);
+            this.Controls.Add(this.auraButtonSet);
+            this.Controls.Add(this.auraLabelB);
+            this.Controls.Add(this.auraLabelG);
+            this.Controls.Add(this.auraValueB);
+            this.Controls.Add(this.auraValueG);
+            this.Controls.Add(this.auraValueR);
+            this.Controls.Add(this.auraLabelR);
             this.Controls.Add(this.selSensor2Label);
             this.Controls.Add(this.selSensor1Label);
             this.Controls.Add(this.setSensor2Btn);
@@ -275,6 +370,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auraValueB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,6 +402,13 @@
         private System.Windows.Forms.Button setSensor2Btn;
         private System.Windows.Forms.Label selSensor1Label;
         private System.Windows.Forms.Label selSensor2Label;
+        private System.Windows.Forms.Label auraLabelR;
+        private System.Windows.Forms.NumericUpDown auraValueR;
+        private System.Windows.Forms.NumericUpDown auraValueG;
+        private System.Windows.Forms.NumericUpDown auraValueB;
+        private System.Windows.Forms.Label auraLabelG;
+        private System.Windows.Forms.Label auraLabelB;
+        private System.Windows.Forms.Button auraButtonSet;
     }
 }
 

@@ -21,6 +21,7 @@ namespace CPU_Monitor
         ISensor sensor2;
         IHardware hardware1;
         IHardware hardware2;
+        IntPtr[] gpuPtr = new IntPtr[5];
         Computer c = new Computer()
         {
             GPUEnabled = true,
@@ -46,6 +47,7 @@ namespace CPU_Monitor
             notifyIcon1.Visible = false;
             hardwareList.DataSource = c.Hardware;
             hardwareList.DisplayMember = "name";
+            AsusAura.EnumerateGPU(gpuPtr, 1);
             try
             {
                 port.Parity = Parity.None;
@@ -147,6 +149,12 @@ namespace CPU_Monitor
             hardware2 = (IHardware)hardwareList.SelectedItem;
             sensor2 = (ISensor)sensorGridView.SelectedRows[0].DataBoundItem;
             selSensor2Label.Text = sensor2.Name + sensor2.SensorType;
+        }
+
+        private void auraButtonSet_Click(object sender, EventArgs e)
+        {
+            byte[] gpuColor = { (byte)auraValueR.Value, (byte)auraValueG.Value, (byte)auraValueB.Value };
+            AsusAura.SetGPUColor(gpuPtr[0], gpuColor, 3);
         }
 
         private void Status()
