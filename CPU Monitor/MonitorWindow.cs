@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using OpenHardwareMonitor.Hardware;
-
+using System.Threading;
 
 namespace CPU_Monitor
 {
@@ -21,7 +21,8 @@ namespace CPU_Monitor
         ISensor sensor2;
         IHardware hardware1;
         IHardware hardware2;
-        IntPtr[] gpuPtr = new IntPtr[5];
+        AsusAura asusAura;
+        Color GPUColor;
         Computer c = new Computer()
         {
             GPUEnabled = true,
@@ -47,7 +48,9 @@ namespace CPU_Monitor
             notifyIcon1.Visible = false;
             hardwareList.DataSource = c.Hardware;
             hardwareList.DisplayMember = "name";
-            AsusAura.EnumerateGPU(gpuPtr, 1);
+            asusAura = new AsusAura();
+            asusAura.Init();
+            GPUColor = Color.FromArgb(0x78FF0000);
             try
             {
                 port.Parity = Parity.None;
@@ -151,10 +154,23 @@ namespace CPU_Monitor
             selSensor2Label.Text = sensor2.Name + sensor2.SensorType;
         }
 
-        private void auraButtonSet_Click(object sender, EventArgs e)
+        private void openColorPicker_Click(object sender, EventArgs e)
         {
-            byte[] gpuColor = { (byte)auraValueR.Value, (byte)auraValueG.Value, (byte)auraValueB.Value };
-            AsusAura.SetGPUColor(gpuPtr[0], gpuColor, 3);
+
+            ColorDialog colorDialog1 = new ColorDialog();
+            colorDialog1.FullOpen = true;
+            
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GPUColor = colorDialog1.Color;
+                asusAura.SetGPUColorRGB(GPUColor);
+            }
+        }
+
+        private void auraValueM_CheckedChanged(object sender, EventArgs e)
+        {
+            asusAura.SetGPUColorRGB(GPUColor);
+            asusAura.SetPulse(auraValueM.Checked);
         }
 
         private void Status()

@@ -52,22 +52,20 @@
             this.setSensor2Btn = new System.Windows.Forms.Button();
             this.selSensor1Label = new System.Windows.Forms.Label();
             this.selSensor2Label = new System.Windows.Forms.Label();
-            this.auraLabelR = new System.Windows.Forms.Label();
-            this.auraValueR = new System.Windows.Forms.NumericUpDown();
-            this.auraValueG = new System.Windows.Forms.NumericUpDown();
-            this.auraValueB = new System.Windows.Forms.NumericUpDown();
-            this.auraLabelG = new System.Windows.Forms.Label();
-            this.auraLabelB = new System.Windows.Forms.Label();
-            this.auraButtonSet = new System.Windows.Forms.Button();
+            this.auraValueM = new System.Windows.Forms.CheckBox();
+            this.auraValueMLabel = new System.Windows.Forms.Label();
+            this.openColorPicker = new System.Windows.Forms.Button();
+            this.GPULedModeGroup = new System.Windows.Forms.GroupBox();
+            this.GPULedModeStatic = new System.Windows.Forms.RadioButton();
+            this.GPULedModeCycle = new System.Windows.Forms.RadioButton();
+            this.GPULedModeTemp = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueB)).BeginInit();
+            this.GPULedModeGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // portlabel
@@ -257,96 +255,89 @@
             this.selSensor2Label.TabIndex = 13;
             this.selSensor2Label.Text = "None";
             // 
-            // auraLabelR
+            // auraValueM
             // 
-            this.auraLabelR.AutoSize = true;
-            this.auraLabelR.Location = new System.Drawing.Point(262, 14);
-            this.auraLabelR.Name = "auraLabelR";
-            this.auraLabelR.Size = new System.Drawing.Size(15, 13);
-            this.auraLabelR.TabIndex = 17;
-            this.auraLabelR.Text = "R";
+            this.auraValueM.AutoSize = true;
+            this.auraValueM.Checked = true;
+            this.auraValueM.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.auraValueM.Location = new System.Drawing.Point(415, 34);
+            this.auraValueM.Name = "auraValueM";
+            this.auraValueM.Size = new System.Drawing.Size(15, 14);
+            this.auraValueM.TabIndex = 24;
+            this.auraValueM.UseVisualStyleBackColor = true;
+            this.auraValueM.CheckedChanged += new System.EventHandler(this.auraValueM_CheckedChanged);
             // 
-            // auraValueR
+            // auraValueMLabel
             // 
-            this.auraValueR.Location = new System.Drawing.Point(265, 31);
-            this.auraValueR.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.auraValueR.Name = "auraValueR";
-            this.auraValueR.Size = new System.Drawing.Size(44, 20);
-            this.auraValueR.TabIndex = 18;
-            this.auraValueR.Value = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
+            this.auraValueMLabel.AutoSize = true;
+            this.auraValueMLabel.Location = new System.Drawing.Point(412, 14);
+            this.auraValueMLabel.Name = "auraValueMLabel";
+            this.auraValueMLabel.Size = new System.Drawing.Size(33, 13);
+            this.auraValueMLabel.TabIndex = 25;
+            this.auraValueMLabel.Text = "Pulse";
             // 
-            // auraValueG
+            // openColorPicker
             // 
-            this.auraValueG.Location = new System.Drawing.Point(315, 30);
-            this.auraValueG.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.auraValueG.Name = "auraValueG";
-            this.auraValueG.Size = new System.Drawing.Size(44, 20);
-            this.auraValueG.TabIndex = 19;
+            this.openColorPicker.Location = new System.Drawing.Point(267, 30);
+            this.openColorPicker.Name = "openColorPicker";
+            this.openColorPicker.Size = new System.Drawing.Size(111, 23);
+            this.openColorPicker.TabIndex = 26;
+            this.openColorPicker.Text = "GPU LED Color";
+            this.openColorPicker.UseVisualStyleBackColor = true;
+            this.openColorPicker.Click += new System.EventHandler(this.openColorPicker_Click);
             // 
-            // auraValueB
+            // GPULedModeGroup
             // 
-            this.auraValueB.Location = new System.Drawing.Point(365, 30);
-            this.auraValueB.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.auraValueB.Name = "auraValueB";
-            this.auraValueB.Size = new System.Drawing.Size(44, 20);
-            this.auraValueB.TabIndex = 20;
+            this.GPULedModeGroup.Controls.Add(this.GPULedModeTemp);
+            this.GPULedModeGroup.Controls.Add(this.GPULedModeCycle);
+            this.GPULedModeGroup.Controls.Add(this.GPULedModeStatic);
+            this.GPULedModeGroup.Location = new System.Drawing.Point(267, 59);
+            this.GPULedModeGroup.Name = "GPULedModeGroup";
+            this.GPULedModeGroup.Size = new System.Drawing.Size(178, 82);
+            this.GPULedModeGroup.TabIndex = 27;
+            this.GPULedModeGroup.TabStop = false;
             // 
-            // auraLabelG
+            // GPULedModeStatic
             // 
-            this.auraLabelG.AutoSize = true;
-            this.auraLabelG.Location = new System.Drawing.Point(315, 13);
-            this.auraLabelG.Name = "auraLabelG";
-            this.auraLabelG.Size = new System.Drawing.Size(15, 13);
-            this.auraLabelG.TabIndex = 21;
-            this.auraLabelG.Text = "G";
+            this.GPULedModeStatic.AutoSize = true;
+            this.GPULedModeStatic.Checked = true;
+            this.GPULedModeStatic.Location = new System.Drawing.Point(6, 12);
+            this.GPULedModeStatic.Name = "GPULedModeStatic";
+            this.GPULedModeStatic.Size = new System.Drawing.Size(52, 17);
+            this.GPULedModeStatic.TabIndex = 0;
+            this.GPULedModeStatic.TabStop = true;
+            this.GPULedModeStatic.Text = "Static";
+            this.GPULedModeStatic.UseVisualStyleBackColor = true;
             // 
-            // auraLabelB
+            // GPULedModeCycle
             // 
-            this.auraLabelB.AutoSize = true;
-            this.auraLabelB.Location = new System.Drawing.Point(362, 14);
-            this.auraLabelB.Name = "auraLabelB";
-            this.auraLabelB.Size = new System.Drawing.Size(14, 13);
-            this.auraLabelB.TabIndex = 22;
-            this.auraLabelB.Text = "B";
+            this.GPULedModeCycle.AutoSize = true;
+            this.GPULedModeCycle.Location = new System.Drawing.Point(6, 35);
+            this.GPULedModeCycle.Name = "GPULedModeCycle";
+            this.GPULedModeCycle.Size = new System.Drawing.Size(51, 17);
+            this.GPULedModeCycle.TabIndex = 1;
+            this.GPULedModeCycle.Text = "Cycle";
+            this.GPULedModeCycle.UseVisualStyleBackColor = true;
             // 
-            // auraButtonSet
+            // GPULedModeTemp
             // 
-            this.auraButtonSet.Location = new System.Drawing.Point(416, 30);
-            this.auraButtonSet.Name = "auraButtonSet";
-            this.auraButtonSet.Size = new System.Drawing.Size(75, 20);
-            this.auraButtonSet.TabIndex = 23;
-            this.auraButtonSet.Text = "Set";
-            this.auraButtonSet.UseVisualStyleBackColor = true;
-            this.auraButtonSet.Click += new System.EventHandler(this.auraButtonSet_Click);
+            this.GPULedModeTemp.AutoSize = true;
+            this.GPULedModeTemp.Location = new System.Drawing.Point(6, 59);
+            this.GPULedModeTemp.Name = "GPULedModeTemp";
+            this.GPULedModeTemp.Size = new System.Drawing.Size(85, 17);
+            this.GPULedModeTemp.TabIndex = 2;
+            this.GPULedModeTemp.Text = "Temperature";
+            this.GPULedModeTemp.UseVisualStyleBackColor = true;
             // 
             // sensorList2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 425);
-            this.Controls.Add(this.auraButtonSet);
-            this.Controls.Add(this.auraLabelB);
-            this.Controls.Add(this.auraLabelG);
-            this.Controls.Add(this.auraValueB);
-            this.Controls.Add(this.auraValueG);
-            this.Controls.Add(this.auraValueR);
-            this.Controls.Add(this.auraLabelR);
+            this.Controls.Add(this.GPULedModeGroup);
+            this.Controls.Add(this.openColorPicker);
+            this.Controls.Add(this.auraValueMLabel);
+            this.Controls.Add(this.auraValueM);
             this.Controls.Add(this.selSensor2Label);
             this.Controls.Add(this.selSensor1Label);
             this.Controls.Add(this.setSensor2Btn);
@@ -370,9 +361,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auraValueB)).EndInit();
+            this.GPULedModeGroup.ResumeLayout(false);
+            this.GPULedModeGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,13 +392,13 @@
         private System.Windows.Forms.Button setSensor2Btn;
         private System.Windows.Forms.Label selSensor1Label;
         private System.Windows.Forms.Label selSensor2Label;
-        private System.Windows.Forms.Label auraLabelR;
-        private System.Windows.Forms.NumericUpDown auraValueR;
-        private System.Windows.Forms.NumericUpDown auraValueG;
-        private System.Windows.Forms.NumericUpDown auraValueB;
-        private System.Windows.Forms.Label auraLabelG;
-        private System.Windows.Forms.Label auraLabelB;
-        private System.Windows.Forms.Button auraButtonSet;
+        private System.Windows.Forms.CheckBox auraValueM;
+        private System.Windows.Forms.Label auraValueMLabel;
+        private System.Windows.Forms.Button openColorPicker;
+        private System.Windows.Forms.GroupBox GPULedModeGroup;
+        private System.Windows.Forms.RadioButton GPULedModeTemp;
+        private System.Windows.Forms.RadioButton GPULedModeCycle;
+        private System.Windows.Forms.RadioButton GPULedModeStatic;
     }
 }
 

@@ -75,6 +75,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="comp_monitor.ino" />
     <None Include="Properties\DataSources\OpenHardwareMonitor.Hardware.Computer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
