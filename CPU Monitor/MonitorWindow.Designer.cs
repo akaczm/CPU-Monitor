@@ -56,9 +56,9 @@
             this.auraValueMLabel = new System.Windows.Forms.Label();
             this.openColorPicker = new System.Windows.Forms.Button();
             this.GPULedModeGroup = new System.Windows.Forms.GroupBox();
-            this.GPULedModeStatic = new System.Windows.Forms.RadioButton();
-            this.GPULedModeCycle = new System.Windows.Forms.RadioButton();
             this.GPULedModeTemp = new System.Windows.Forms.RadioButton();
+            this.GPULedModeCycle = new System.Windows.Forms.RadioButton();
+            this.GPULedModeStatic = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource)).BeginInit();
@@ -297,6 +297,27 @@
             this.GPULedModeGroup.TabIndex = 27;
             this.GPULedModeGroup.TabStop = false;
             // 
+            // GPULedModeTemp
+            // 
+            this.GPULedModeTemp.AutoSize = true;
+            this.GPULedModeTemp.Location = new System.Drawing.Point(6, 59);
+            this.GPULedModeTemp.Name = "GPULedModeTemp";
+            this.GPULedModeTemp.Size = new System.Drawing.Size(85, 17);
+            this.GPULedModeTemp.TabIndex = 2;
+            this.GPULedModeTemp.Text = "Temperature";
+            this.GPULedModeTemp.UseVisualStyleBackColor = true;
+            // 
+            // GPULedModeCycle
+            // 
+            this.GPULedModeCycle.AutoSize = true;
+            this.GPULedModeCycle.Location = new System.Drawing.Point(6, 35);
+            this.GPULedModeCycle.Name = "GPULedModeCycle";
+            this.GPULedModeCycle.Size = new System.Drawing.Size(51, 17);
+            this.GPULedModeCycle.TabIndex = 1;
+            this.GPULedModeCycle.Text = "Cycle";
+            this.GPULedModeCycle.UseVisualStyleBackColor = true;
+            this.GPULedModeCycle.CheckedChanged += new System.EventHandler(this.GPULedModeCycle_CheckedChanged);
+            // 
             // GPULedModeStatic
             // 
             this.GPULedModeStatic.AutoSize = true;
@@ -308,26 +329,7 @@
             this.GPULedModeStatic.TabStop = true;
             this.GPULedModeStatic.Text = "Static";
             this.GPULedModeStatic.UseVisualStyleBackColor = true;
-            // 
-            // GPULedModeCycle
-            // 
-            this.GPULedModeCycle.AutoSize = true;
-            this.GPULedModeCycle.Location = new System.Drawing.Point(6, 35);
-            this.GPULedModeCycle.Name = "GPULedModeCycle";
-            this.GPULedModeCycle.Size = new System.Drawing.Size(51, 17);
-            this.GPULedModeCycle.TabIndex = 1;
-            this.GPULedModeCycle.Text = "Cycle";
-            this.GPULedModeCycle.UseVisualStyleBackColor = true;
-            // 
-            // GPULedModeTemp
-            // 
-            this.GPULedModeTemp.AutoSize = true;
-            this.GPULedModeTemp.Location = new System.Drawing.Point(6, 59);
-            this.GPULedModeTemp.Name = "GPULedModeTemp";
-            this.GPULedModeTemp.Size = new System.Drawing.Size(85, 17);
-            this.GPULedModeTemp.TabIndex = 2;
-            this.GPULedModeTemp.Text = "Temperature";
-            this.GPULedModeTemp.UseVisualStyleBackColor = true;
+            this.GPULedModeStatic.CheckedChanged += new System.EventHandler(this.GPULedModeStatic_CheckedChanged);
             // 
             // sensorList2
             // 

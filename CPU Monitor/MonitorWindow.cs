@@ -22,11 +22,16 @@ namespace CPU_Monitor
         IHardware hardware1;
         IHardware hardware2;
         AsusAura asusAura;
+        RainbowCycler rainbowCycler;
         Color GPUColor;
         Computer c = new Computer()
         {
             GPUEnabled = true,
-            CPUEnabled = true
+            CPUEnabled = true,
+            MainboardEnabled = true,
+            HDDEnabled = true,
+            FanControllerEnabled = true,
+            RAMEnabled = true
         };
         int value1, value2;
 
@@ -50,6 +55,8 @@ namespace CPU_Monitor
             hardwareList.DisplayMember = "name";
             asusAura = new AsusAura();
             asusAura.Init();
+            rainbowCycler = new RainbowCycler(asusAura);
+
             GPUColor = Color.FromArgb(0x78FF0000);
             try
             {
@@ -169,8 +176,35 @@ namespace CPU_Monitor
 
         private void auraValueM_CheckedChanged(object sender, EventArgs e)
         {
-            asusAura.SetGPUColorRGB(GPUColor);
-            asusAura.SetPulse(auraValueM.Checked);
+            if (asusAura.LedMode == AsusAura.LedModes.Static)
+            {
+                openColorPicker.Enabled = true;
+                asusAura.SetGPUColorRGB(GPUColor);
+                asusAura.SetPulse(auraValueM.Checked);
+            }
+            
+        }
+
+        private void GPULedModeCycle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GPULedModeCycle.Checked)
+            {
+                openColorPicker.Enabled = false;
+                auraValueM.Enabled = false;
+                asusAura.LedMode = AsusAura.LedModes.Cycle;
+                rainbowCycler.StartWork();
+            }
+        }
+
+        private void GPULedModeStatic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GPULedModeStatic.Checked)
+            {
+                rainbowCycler.StopWork();
+                openColorPicker.Enabled = true;
+                auraValueM.Enabled = true;
+                asusAura.LedMode = AsusAura.LedModes.Static;
+            }
         }
 
         private void Status()
